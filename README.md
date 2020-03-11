@@ -1,65 +1,95 @@
-# google-sheets-equation-syntax-hightlighter README
-
-This is the README for your extension "google-sheets-equation-syntax-hightlighter". After writing up a brief description, we recommend including the following sections.
+# Syntax Highlighter for Google Sheets formulas
+Simply put there is no Syntax Highlighting for Google Sheets formulas in Visul Studio code.
 
 ## Features
+Syntax Highlighting for:
+* Sheets Functions Keywords like IF, DATE, DEC2HEX...
+* Single line comments
+* Double line comments
+* Single quote strings
+* Double quote strings
+* Support for number highlighting
+* Special Characters like =, <> , =!
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Technical Information
+Syntax highlighting is done by corresponding to textmate elements.
 
-For example if there is an image subfolder under your extension project workspace:
+### Keywords
+Patterns matched to keyword.control:
+> AND, IF, IFERROR, IFNA, IFs, NOT, OR, SWITCH, XOR
 
-\!\[feature X\]\(images/feature-x.png\)
+### Comments
+Pattern matched to comment.line.double-slash:
+> lines starting with '//'
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Pattern matched to comment.block:
+> Blocks starting with '/*' and ending with '*/'
 
-## Requirements
+### Support
+Patterns matched to support.function:
+> ABS, ACCRINT, ACCRINTM, ACOS, ACOSH, ACOT, ACOTH, ADDRESS, AMORLINC, ARABIC, 
+> ARRAY_CONSTRAIN, ARRAYFORMULA, ASC, ASIN, ASINH, ATAN, ATAN2, ATANH, AVEDEV, 
+> AVERAGE, AVERAGE.WEIGHTED, AVERAGEA, AVERAGEIF, AVERAGEIFS, BASE, BETA.DIST, 
+> BETA.INV, BETADIST, BETAINV, BIN2DEC, BIN2HEX, BIN2OCT, BINOM.DIST, BINOM.INV, 
+> BINOMDIST, BITAND, BITLSHIFT, BITOR, BITRSHIFT, BITXOR, CEILING, CEILING.MATH, 
+> CEILING.PRECISE, CELL, CHAR, CHIDIST, CHIINV, CHISQ.DIST, CHISQ.DIST.RT, CHISQ.INV, 
+> CHISQ.INV.RT, CHISQ.TEST, CHITEST, CHOOSE, CLEAN, CODE, COLUMN, COLUMNS, COMBIN, 
+> COMBINA, COMPLEX, CONCATENATE, CONFIDENCE, CONFIDENCE.NORM, CONFIDENCE.T, CONVERT, 
+> CORREL, COS, COSH, COT, COTH, COUNT, COUNTA, COUNTBLANK, COUNTIF, COUNTIFS, COUNTUNIQUE, 
+> COUPDAYBS, COUPDAYS, COUPDAYSNC, COUPNCD, COUPNUM, COUPPCD, COVAR, COVARIANCE.P, 
+> COVARIANCE.S, CRITBINOM, CSC, CSCH, CUMIPMT, CUMPRINC, DATE, DATEDIF, DATEVALUE, 
+> DAVERAGE, DAY, DAYS, DAYS360, DB, DCOUNT, DCOUNTA, DDB, DEC2BIN, DEC2HEX, DEC2OCT, 
+> DECIMAL, DEGREES, DELTA, DETECTLANGUAGE, DEVSQ, DGET, DISC, DMAX, DMIN, DOLLAR, 
+> DOLLARDE, DOLLARFR, DPRODUCT, DSTDEV, DSTDEVP, DSUM, DURATION, DVAR, DVARP, EDATE, 
+> EFFECT, ENCODEURL, EOMONTH, ERF, ERF.PRECISE, ERFC, ERFC.PRECISE, ERROR.TYPE, EVEN, 
+> EXACT, EXP, EXPON.DIST, EXPONDIST, F.DIST, F.DIST.RT, F.INV, F.INV.RT, F.TEST, FACT, 
+> FACTDOUBLE, FDIST, FILTER, FIND, FINDB, FINV, FISHER, FISHERINV, FIXED, FLOOR, 
+> FLOOR.MATH, FLOOR.PRECISE, FORECAST, FORECAST.LINEAR, FORMULATEXT, FREQUENCY, FTEST, FV, 
+> FVSCHEDULE, GAMMA, GAMMA.DIST, GAMMA.INV, GAMMADIST, GAMMAINV, GAMMALN, GAMMALN.PRECISE, 
+> GAUSS, GCD, GEOMEAN, GESTEP, GETPIVOTDATA, GOOGLEFINANCE, GOOGLETRANSLATE, GROWTH, 
+> HARMEAN, HEX2BIN, HEX2DEC, HEX2OCT, HLOOKUP, HOUR, HYPERLINK, HYPGEOM.DIST, HYPGEOMDIST, 
+> IMABS, IMAGE, IMAGINARY, IMARGUMENT, IMCONJUGATE, IMCOS, IMCOSH, IMCOT, IMCOTH, IMCSC, 
+> IMCSCH, IMDIV, IMEXP, IMLN, IMLOG, IMLOG10, IMLOG2, IMPORTDATA, IMPORTFEED, IMPORTHTML, 
+> IMPORTRANGE, IMPORTXML, IMPOWER, IMPRODUCT, IMREAL, IMSEC, IMSECH, IMSIN, IMSINH, IMSQRT, 
+> IMSUB, IMSUM, IMTAN, IMTANH, INDEX, INDIRECT, INT, INTERCEPT, INTRATE, IPMT, IRR, 
+> ISBLANK, ISDATE, ISEMAIL, ISERR, ISERROR, ISEVEN, ISFORMULA, ISLOGICAL, ISNA, ISNONTEXT, 
+> ISNUMBER, ISO.CEILING, ISODD, ISOWEEKNUM, ISPMT, ISREF, ISTEXT, ISURL, JOIN, KURT, LARGE, 
+> LCM, LEFT, LEFTB, LEN, LENB, LINEST, LN, LOG, LOG10, LOGEST, LOGINV, LOGNORM.DIST, 
+> LOGNORM.INV, LOGNORMDIST, LOOKUP, LOWER, MATCH, MAX, MAXA, MAXIFS, MDETERM, MDURATION, 
+> MEDIAN, MID, MIDB, MIN, MINA, MINIFS, MINUTE, MINVERSE, MIRR, MMULT, MOD, MODE, 
+> MODE.MULT, MODE.SNGL, MONTH, MROUND, MULTINOMIAL, MUNIT, N, NA, NEGBINOM.DIST, 
+> NEGBINOMDIST, NETWORKDAYS, NETWORKDAYS.INTL, NOMINAL, NORM.DIST, NORM.INV, NORM.S.DIST, 
+> NORM.S.INV, NORMDIST, NORMINV, NORMSDIST, NORMSINV, NOW, NPER, NPV, OCT2BIN, OCT2DEC, 
+> OCT2HEX, ODD, OFFSET, PDURATION, PEARSON, PERCENTILE, PERCENTILE.EXC, PERCENTILE.INC, 
+> PERCENTRANK, PERCENTRANK.EXC, PERCENTRANK.INC, PERMUT, PERMUTATIONA, PHI, PI, PMT, 
+> POISSON, POISSON.DIST, POWER, PPMT, PRICE, PRICEDISC, PRICEMAT, PROB, PRODUCT, PROPER, 
+> PV, QUARTILE, QUARTILE.EXC, QUARTILE.INC, QUERY, QUOTIENT, RADIANS, RAND, RANDARRAY, 
+> RANDBETWEEN, RANK, RANK.AVG, RANK.EQ, RATE, RECEIVED, REGEXEXTRACT, REGEXMATCH, 
+> REGEXREPLACE, REPLACE, REPLACEB, REPT, RIGHT, RIGHTB, ROMAN, ROUND, ROUNDDOWN, 
+> ROUNDUP, ROW, ROWS, RRI, RSQ, SEARCH, SEARCHB, SEC, SECH, SECOND, SEQUENCE, SERIESSUM, 
+> SIGN, SIN, SINH, SKEW, SKEW.P, SLN, SLOPE, SMALL, SORT, SORTN, SPARKLINE, SPLIT, SQRT, 
+> SQRTPI, STANDARDIZE, STDEV, STDEV.P, STDEV.S, STDEVA, STDEVP, STDEVPA, STEYX, 
+> SUBSTITUTE, SUBTOTAL, SUM, SUMIF, SUMIFS, SUMPRODUCT, SUMSQ, SUMX2MY2, SUMX2PY2, 
+> SUMXMY2, SYD, T, T.DIST, T.DIST.2T, T.DIST.RT, T.INV, T.INV.2T, T.TEST, TAN, TANH, 
+> TBILLEQ, TBILLPRICE, TBILLYIELD, TDIST, TEXT, TEXTJOIN, TIME, TIMEVALUE, TINV, 
+> TO_DATE, TO_DOLLARS, TO_PERCENT, TO_PURE_NUMBER, TO_TEXT, TODAY, TRANSPOSE, TREND, TRIM, 
+> TRIMMEAN, TRUNC, TTEST, TYPE, UNICHAR, UNICODE, UNIQUE, UPPER, VALUE, VAR, VAR.P, VAR.S, 
+> VARA, VARP, VARPA, VDB, VLOOKUP, WEEKDAY, WEEKNUM, WEIBULL, WEIBULL.DIST, WORKDAY, 
+> WORKDAY.INTL, XIRR, XNPV, YEAR, YEARFRAC, YIELD, YIELDDISC, YIELDMAT, Z.TEST, ZTEST
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Strings
+Pattern matched to string.quoted.single:
+> Comments encapsulated by ' & '
 
-## Extension Settings
+Pattern matched to string.quoted.double:
+> Comments encapsulated by " & "
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Constants
+Pattern matched to constant.character:
+> <,>,=,!,$,:
 
-For example:
+Pattern matched to constant.language:
+> FALSE, TRUE
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Pattern matched to constant.numeric:
+> Numbers 0-9
