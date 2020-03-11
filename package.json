@@ -1,0 +1,26 @@
+{
+    "name": "google-sheets-equation-syntax-hightlighter",
+    "displayName": "Google Sheets Equation Syntax Hightlighter",
+    "description": "A VSC extension to support Syntax highlighting for Google Sheets Equations",
+    "publisher": "0",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "sheets",
+            "aliases": ["Google Sheets Equations", "sheets"],
+            "extensions": [".gse"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "sheets",
+            "scopeName": "source.sheets",
+            "path": "./syntaxes/sheets.tmLanguage.json"
+        }]
+    }
+}

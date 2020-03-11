@@ -1,0 +1,4 @@
+"\\b(FALSE|TRUE)\\b"
+
+FALSE
+TRUE
