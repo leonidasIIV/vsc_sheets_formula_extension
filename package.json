@@ -2,8 +2,9 @@
     "name": "google-sheets-equation-syntax-hightlighter",
     "displayName": "Google Sheets Equation Syntax Hightlighter",
     "description": "A VSC extension to support Syntax highlighting for Google Sheets Equations",
-    "publisher": "0",
-    "version": "0.0.1",
+    "publisher": "leonidasIIV",
+    "version": "0.1.0",
+    "repository": "https://github.com/leonidasIIV/vsc_sheets_formula_extension",
     "engines": {
         "vscode": "^1.43.0"
     },
